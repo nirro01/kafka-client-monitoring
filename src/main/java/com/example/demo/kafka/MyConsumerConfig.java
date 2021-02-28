@@ -29,7 +29,7 @@ public class MyConsumerConfig {
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         ConsumerFactory<String, String> consumerFactory = new DefaultKafkaConsumerFactory<>(props);
-        //consumerFactory.addListener(new MicrometerConsumerListener<>(meterRegistry));
+        consumerFactory.addListener(new MicrometerConsumerListener<>(meterRegistry));
         return consumerFactory;
     }
 
